@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lyric Hermanson — Online Coaching</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#b8963e;--black:#1a1a1a;--off:#f7f6f3;--gray:#888;--lgray:#e8e6e0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:var(--black);background:#fff;font-size:15px}
+nav{position:fixed;top:0;width:100%;background:#fff;z-index:100;border-bottom:1px solid var(--lgray);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;cursor:pointer}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links button{text-decoration:none;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--black);transition:color .2s;cursor:pointer;background:none;border:none;font-family:inherit}
+.nav-links button:hover,.nav-links button.active{color:var(--gold)}
+.btn-nav{background:var(--black)!important;color:#fff!important;padding:12px 24px!important;border:none!important}
+.btn-nav:hover{background:#444!important;color:#fff!important}
+.page{display:none}.page.active{display:block}
+.label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.label::before{content:'';display:inline-block;width:32px;height:1px;background:var(--gold)}
+h1,h2{font-family:'Cormorant Garamond',serif;font-weight:300}
+h1{font-size:clamp(48px,6vw,80px);line-height:1.05}
+h2{font-size:clamp(36px,4vw,56px);line-height:1.1}
+.ig{font-style:italic;color:var(--gold)}
+.btn-blk{display:inline-block;background:var(--black);color:#fff;padding:14px 28px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border:none;font-family:inherit;transition:background .2s}
+.btn-blk:hover{background:#444}
+.btn-ol{display:inline-block;border:1.5px solid var(--black);color:var(--black);padding:13px 28px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;background:none;font-family:inherit;transition:all .2s}
+.btn-ol:hover{background:var(--black);color:#fff}
+.btn-gld{display:inline-block;background:var(--gold);color:#fff;padding:14px 28px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border:none;font-family:inherit;transition:background .2s}
+.btn-gld:hover{background:#9a7a30}
+
+/* HOME */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 68px);align-items:center;padding:0 48px;margin-top:68px}
+.hero-text p{color:var(--gray);line-height:1.7;max-width:420px;margin:24px 0 36px;font-size:14px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.hero-img{position:relative;height:100%;min-height:500px;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.hero-cap{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.75);padding:20px 24px}
+.hero-cap p{color:#fff;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300}
+.hero-cap span{color:var(--gold);font-size:10px;letter-spacing:.15em;text-transform:uppercase;display:block;margin-top:4px}
+.ticker{background:var(--black);color:#fff;padding:14px 48px;display:flex;align-items:center;gap:24px;font-size:11px;letter-spacing:.1em}
+.tg{color:var(--gold)}
+.tlinks{margin-left:auto;display:flex;gap:16px}
+.tlinks a{color:#aaa;text-decoration:none;font-size:11px}.tlinks a:hover{color:#fff}
+.offer-sec{padding:80px 48px}
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:60px}
+.oc{padding:48px 36px;border:1px solid var(--lgray)}
+.oc.mid{background:var(--off)}
+.onum{font-family:'Cormorant Garamond',serif;font-size:64px;color:var(--lgray);font-weight:300;line-height:1;margin-bottom:24px}
+.oc h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:12px}
+.oc p{color:var(--gray);line-height:1.7;font-size:13px;margin-bottom:24px}
+.lm{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);cursor:pointer;background:none;border:none;font-family:inherit}
+.lm:hover{color:#9a7a30}
+
+/* ABOUT */
+.about-hero{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;padding:120px 48px 60px}
+.about-img img{width:100%;object-fit:cover;display:block}
+.about-text h1 span{display:block;color:var(--gold);font-style:italic}
+blockquote{border-left:3px solid var(--gold);padding-left:20px;margin:28px 0;font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:#444}
+.about-text p{color:#555;line-height:1.8;font-size:14px;margin-bottom:16px}
+.bg-sec{padding:60px 48px;border-top:1px solid var(--lgray)}
+.bg-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:40px}
+.bc{padding:40px 36px;border:1px solid var(--lgray)}
+.bc.mid{background:var(--off)}
+.bicon{width:44px;height:44px;border-radius:50%;border:1px solid var(--lgray);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gray);margin-bottom:28px}
+.bc h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;margin-bottom:12px}
+.bc p{color:var(--gray);font-size:13px;line-height:1.7}
+.trans-sec{padding:60px 48px;border-top:1px solid var(--lgray)}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:40px}
+.cimg{width:100%;height:320px;object-fit:cover;object-position:top;display:block}
+.cinfo{padding:16px 0}
+.cinfo p{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400}
+.cinfo span{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray)}
+
+/* COACHING */
+.coach-hero{padding:120px 48px 60px}
+.inc-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--gold);margin-top:60px}
+.ic{padding:48px 36px;border-right:1px solid var(--lgray)}
+.ic:last-child{border-right:none}
+.ic.mid{background:var(--off)}
+.ic h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;margin-bottom:12px}
+.ic p{color:var(--gray);font-size:13px;line-height:1.7}
+.how-sec{padding:60px 48px;border-top:1px solid var(--lgray)}
+.steps{margin-top:40px}
+.step{display:grid;grid-template-columns:80px 1fr;align-items:start;padding:28px 0;border-bottom:1px solid var(--lgray);cursor:default}
+.step:first-child{border-top:1px solid var(--lgray)}
+.snum{font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--lgray);font-weight:300;line-height:1;transition:color .2s}
+.step:hover .snum{color:var(--gold)}
+.step h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;margin-bottom:8px}
+.step p{color:var(--gray);font-size:13px;line-height:1.7}
+.price-box{background:var(--black);padding:56px 64px;display:flex;align-items:center;justify-content:space-between;margin:60px 48px;border-radius:2px}
+.pl h2{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:#fff;margin-bottom:12px}
+.pl p{color:#aaa;font-size:13px;max-width:480px}
+.pr{text-align:right}
+.amt{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:#fff;line-height:1}
+.amt sup{font-size:28px;vertical-align:super}
+.per{color:#aaa;font-size:12px;letter-spacing:.08em;margin-bottom:20px}
+
+/* RESOURCES */
+.res-page{padding:120px 48px 60px}
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:40px}
+.rc{background:var(--off);padding:48px 40px}
+.rc.wh{background:#fff;border:1px solid var(--lgray)}
+.rc h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--lgray)}
+.ri{padding:20px 0;border-bottom:1px solid var(--lgray)}
+.ri:last-child{border-bottom:none}
+.ri h4{font-size:14px;font-weight:500;margin-bottom:4px}
+.ri p{color:var(--gray);font-size:12px;margin-bottom:6px;line-height:1.5}
+.ri a{color:var(--gold);font-size:11px;text-decoration:none}.ri a:hover{color:#9a7a30}
+.rr{margin-top:40px}
+.rr h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--lgray)}
+
+/* APPLY */
+.apply-page{padding:120px 48px 80px}
+.wwm-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:60px;align-items:start}
+.ib{margin-bottom:36px}
+.ilbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:8px}
+.ival{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400}
+.isub{font-size:12px;color:var(--gray);margin-top:4px}
+.fp{font-size:13px;color:var(--gray);line-height:1.7}
+.field{margin-bottom:28px}
+.field label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);display:block;margin-bottom:10px}
+.field input,.field textarea{width:100%;border:none;border-bottom:1px solid var(--lgray);padding:8px 0;font-family:'Montserrat',sans-serif;font-size:14px;color:var(--black);background:transparent;outline:none;transition:border-color .2s;resize:none}
+.field input:focus,.field textarea:focus{border-bottom-color:var(--black)}
+.field input::placeholder,.field textarea::placeholder{color:#ccc}
+.field textarea{min-height:100px}
+.sub-btn{width:100%;background:var(--black);color:#fff;border:none;padding:18px;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:8px}
+.sub-btn:hover{background:#444}
+.sub-note{text-align:center;font-size:12px;color:var(--gray);margin-top:12px}
+.success{display:none;background:var(--off);border-left:3px solid var(--gold);padding:20px 24px;margin-top:20px;font-size:13px;color:#555;line-height:1.6}
+
+footer{background:#fff;border-top:1px solid var(--lgray);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;margin-top:60px}
+.fsm{font-family:'Cormorant Garamond',serif;font-size:18px}
+.fm{color:var(--gray);font-size:12px;display:flex;gap:16px;align-items:center}
+.fm span{color:var(--lgray)}
+.fs{font-size:12px;color:var(--gray)}
+.fs a{color:var(--gold);text-decoration:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo" onclick="show('home')">Lyric <span>Hermanson</span></div>
+  <div class="nav-links">
+    <button onclick="show('home')" id="nav-home" class="active">Home</button>
+    <button onclick="show('about')" id="nav-about">About</button>
+    <button onclick="show('coaching')" id="nav-coaching">Coaching</button>
+    <button onclick="show('resources')" id="nav-resources">Resources</button>
+    <button onclick="show('apply')" id="nav-apply" class="btn-nav">Work With Me</button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="page">
+  <div class="hero">
+    <div class="hero-text">
+      <div class="label">1-on-1 Online Coaching</div>
+      <h1>Train smarter.<br>Eat <span class="ig">better.</span><br>Live longer.</h1>
+      <p>Personalized fitness and nutrition coaching built around you — your goals, your schedule, your life. Traditional methods. Real results.</p>
+      <div class="hero-btns">
+        <button class="btn-blk" onclick="show('apply')">Apply Now</button>
+        <button class="btn-ol" onclick="show('coaching')">See What's Included</button>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://raw.githubusercontent.com/lyrichermanson/lyrichermanson.com/main/IMG_3694.jpg" alt="Lyric Hermanson">
+      <div class="hero-cap">
+        <p>Lyric Hermanson</p>
+        <span>Coach &amp; Physical Activity Specialist</span>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <span class="tg">FOLLOW ALONG</span> @lyric_hermanson
+    <div class="tlinks">
+      <a href="https://instagram.com/lyric_hermanson" target="_blank">Instagram</a> /
+      <a href="https://tiktok.com/@lyric_hermanson" target="_blank">TikTok</a> /
+      <a href="https://instagram.com/lyric_hermanson" target="_blank">Socials</a>
+    </div>
+  </div>
+  <div class="offer-sec">
+    <div class="label">What I Offer</div>
+    <h2>The basics, done<br><span class="ig">exceptionally well.</span></h2>
+    <div class="offer-grid">
+      <div class="oc"><div class="onum">01</div><h3>Training Program</h3><p>Custom periodized strength and conditioning built around your goals, equipment, and schedule.</p><button class="lm" onclick="show('coaching')">Learn More →</button></div>
+      <div class="oc mid"><div class="onum">02</div><h3>Nutrition Guidance</h3><p>Macro targets, meal timing strategies, and food quality education. Flexible or structured — your choice.</p><button class="lm" onclick="show('coaching')">Learn More →</button></div>
+      <div class="oc"><div class="onum">03</div><h3>Weekly Check-ins</h3><p>Structured progress reviews tracking lifts, body composition, energy, sleep, and adherence.</p><button class="lm" onclick="show('coaching')">Learn More →</button></div>
+    </div>
+  </div>
+  <footer><div class="fsm">Lyric Hermanson</div><div class="fm">Primarily Online <span>|</span> 1-on-1 Only <span>|</span> mrlyrichermanson@gmail.com</div><div class="fs">Socials: <a href="https://instagram.com/lyric_hermanson" target="_blank">lyric_hermanson</a></div></footer>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+  <div class="about-hero">
+    <div class="about-img"><img src="https://raw.githubusercontent.com/lyrichermanson/lyrichermanson.com/main/IMG_3690.jpg" alt="Lyric Hermanson"></div>
+    <div class="about-text">
+      <h1>Lyric<br><span>Hermanson</span></h1>
+      <blockquote>"The basics, done exceptionally well."</blockquote>
+      <p>I am a Physical Activity Specialist, competitive athlete, and online coach based out of Central Michigan — though you'll often find me on the road. The pursuit of this sport has taken me further than I ever expected, and that experience shapes everything about how I coach.</p>
+      <p>I have been through the grind of figuring it all out on my own — the training, the nutrition, the mental side of things. I know what it is like to struggle, to hit walls, and to have to rebuild. That is not a weakness. That is the work. And it is exactly why I take this so seriously.</p>
+      <p>My approach is grounded in traditional, data-driven, evidence-based training and nutrition. No gimmicks, no shortcuts. Every program is tailored towards you, your goals, your schedule, and your life — because I know firsthand that life does not slow down for your fitness goals.</p>
+      <div style="margin-top:32px"><button class="btn-blk" onclick="show('apply')">Work With Me</button></div>
+    </div>
+  </div>
+  <div class="bg-sec">
+    <div class="label">Background</div>
+    <div class="bg-grid">
+      <div class="bc"><div class="bicon">Ed</div><h3>Education</h3><p>Physical Activity Specialist degree, with coursework in kinesiology, exercise science, and health education.</p></div>
+      <div class="bc mid"><div class="bicon">Tr</div><h3>Training Philosophy</h3><p>Evidence-based programming with a focus on progressive overload, habit formation, and long-term sustainability.</p></div>
+      <div class="bc"><div class="bicon">Co</div><h3>Coaching Style</h3><p>Honest, direct, and highly personalized. I meet you where you are and build from there — no cookie-cutter plans.</p></div>
+    </div>
+  </div>
+  <div class="trans-sec">
+    <div class="label">Transformations</div>
+    <h2>What clients <span class="ig">do.</span></h2>
+    <div class="cgrid">
+      <div>
+        <img src="https://raw.githubusercontent.com/lyrichermanson/lyrichermanson.com/main/2BBC1253-EEC4-4A87-BA22-C7241C3E52B0.JPEG" alt="Lyric" class="cimg">
+        <div class="cinfo"><p>Lyric</p><span>Body Recomposition</span></div>
+      </div>
+      <div>
+        <img src="https://raw.githubusercontent.com/lyrichermanson/lyrichermanson.com/main/12389942-7134-411E-B6EC-BFA76171DB3F.JPEG" alt="Tony" class="cimg">
+        <div class="cinfo"><p>Tony</p><span>Strength &amp; Conditioning</span></div>
+      </div>
+      <div>
+        <img src="https://raw.githubusercontent.com/lyrichermanson/lyrichermanson.com/main/AFE0B308-1F00-4454-9A92-C5D06A2E9B24.JPEG" alt="Nico" class="cimg">
+        <div class="cinfo"><p>Nico</p><span>Muscle Building</span></div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="fsm">Lyric Hermanson</div><div class="fm">Primarily Online <span>|</span> 1-on-1 Only <span>|</span> mrlyrichermanson@gmail.com</div><div class="fs">Socials: <a href="https://instagram.com/lyric_hermanson" target="_blank">lyric_hermanson</a></div></footer>
+</div>
+
+<!-- COACHING -->
+<div id="coaching" class="page">
+  <div class="coach-hero">
+    <div class="label">What's Included</div>
+    <h2>Everything you need.<br><span class="ig">Nothing you don't.</span></h2>
+    <div class="inc-grid">
+      <div class="ic"><h3>Training Program</h3><p>Tailored programming built around your goals, equipment, and schedule. Updated every 4 weeks based on your progress data.</p></div>
+      <div class="ic mid"><h3>Nutrition Guidance</h3><p>Macro targets, meal timing strategies, and food quality education tailored to your body and lifestyle. Rigid meal plans available if preferred.</p></div>
+      <div class="ic"><h3>Weekly Check-ins</h3><p>Structured weekly progress reviews via form or video. We track lifts, body composition, bodyweight, energy, sleep, and adherence every week.</p></div>
+    </div>
+  </div>
+  <div class="how-sec">
+    <div class="label">How It Works</div>
+    <h2>Four steps to<br><span class="ig">getting started.</span></h2>
+    <div class="steps">
+      <div class="step"><div class="snum">01</div><div><h3>Apply</h3><p>Fill out a short application so I understand your goals, training history, and lifestyle. Takes about 5 minutes.</p></div></div>
+      <div class="step"><div class="snum">02</div><div><h3>Onboard</h3><p>Complete an in-depth intake form covering your training background, nutrition habits, schedule, and preferences.</p></div></div>
+      <div class="step"><div class="snum">03</div><div><h3>Receive Your Program</h3><p>Get your fully custom training and nutrition plan delivered within 48 hours. Everything is built from scratch for you.</p></div></div>
+      <div class="step"><div class="snum">04</div><div><h3>Coach</h3><p>Weekly check-ins, ongoing support, and monthly program updates keep you progressing. This is a long-term relationship, not a one-off plan.</p></div></div>
+    </div>
+  </div>
+  <div class="price-box">
+    <div class="pl">
+      <div class="label" style="color:var(--gold)">Standard Rate</div>
+      <h2>1-on-1 Online Coaching</h2>
+      <p>Full training + nutrition + weekly check-ins. Flexible pricing available — reach out to discuss.</p>
+    </div>
+    <div class="pr">
+      <div class="amt"><sup>$</sup>300</div>
+      <div class="per">USD / month</div>
+      <button class="btn-gld" onclick="show('apply')">Apply Now</button>
+    </div>
+  </div>
+  <footer><div class="fsm">Lyric Hermanson</div><div class="fm">Primarily Online <span>|</span> 1-on-1 Only <span>|</span> mrlyrichermanson@gmail.com</div><div class="fs">Socials: <a href="https://instagram.com/lyric_hermanson" target="_blank">lyric_hermanson</a></div></footer>
+</div>
+
+<!-- RESOURCES -->
+<div id="resources" class="page">
+  <div class="res-page">
+    <div class="label">Resources</div>
+    <h2>Tools, reads, and gear<br><span class="ig">I actually use.</span></h2>
+    <p style="color:var(--gray);margin-top:20px;max-width:560px;line-height:1.7;font-size:14px">A curated list of resources for fitness, nutrition, and health — plus the equipment and products that are part of my own training and daily life.</p>
+    <div class="rgrid">
+      <div class="rc">
+        <h3>Health &amp; Fitness Resources</h3>
+        <div class="ri"><h4>Stronger By Science</h4><p>In-depth evidence-based articles on training and nutrition</p><a href="https://strongerbyscience.com" target="_blank">strongerbyscience.com</a></div>
+        <div class="ri"><h4>PubMed</h4><p>Peer-reviewed research for everything health and training</p><a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank">pubmed.ncbi.nlm.nih.gov</a></div>
+        <div class="ri"><h4>Barbell Medicine</h4><p>Evidence-based strength training and sports medicine resources</p><a href="https://barbellmedicine.com" target="_blank">barbellmedicine.com</a></div>
+        <div class="ri"><h4>Bodyrecomposition.com</h4><p>Lyle McDonald's deep-dive research on body composition and nutrition</p><a href="https://bodyrecomposition.com" target="_blank">bodyrecomposition.com</a></div>
+        <div class="ri"><h4>CDC — Physical Activity Guidelines</h4><p>Federal guidelines and research on physical activity and health</p><a href="https://cdc.gov/physicalactivity" target="_blank">cdc.gov/physicalactivity</a></div>
+      </div>
+      <div class="rc wh">
+        <h3>Partners &amp; Sponsors</h3>
+        <div class="ri"><h4>Ekkovision</h4><p>Premium science-backed supplements — use code <strong>LYRIC</strong> for a discount</p><a href="https://ekkovision.com" target="_blank">ekkovision.com</a></div>
+        <div class="ri"><h4>Gym Pin</h4><p>Gym accessories and gear — use code <strong>LYRIC</strong> for a discount</p><a href="https://gym-pin.co.uk" target="_blank">gym-pin.co.uk</a></div>
+        <div class="rr">
+          <h3>Recommended Reading</h3>
+          <div class="ri"><h4>The Bible (NIV)</h4><p>New International Version — foundational text for faith, perspective, and purpose</p></div>
+          <div class="ri"><h4>Atomic Habits</h4><p>James Clear — the framework behind lasting habit change</p></div>
+          <div class="ri"><h4>The Subtle Art of Not Giving a F***</h4><p>Mark Manson — a counterintuitive approach to living a good life</p></div>
+          <div class="ri"><h4>Don't Believe Everything You Think</h4><p>Joseph Nguyen — why your thinking is the root of all suffering, and how to break free</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="fsm">Lyric Hermanson</div><div class="fm">Primarily Online <span>|</span> 1-on-1 Only <span>|</span> mrlyrichermanson@gmail.com</div><div class="fs">Socials: <a href="https://instagram.com/lyric_hermanson" target="_blank">lyric_hermanson</a></div></footer>
+</div>
+
+<!-- APPLY -->
+<div id="apply" class="page">
+  <div class="apply-page">
+    <div class="label">Apply</div>
+    <h2>Ready to get<br><span class="ig">started?</span></h2>
+    <p style="color:var(--gray);margin-top:16px;font-size:14px;line-height:1.7;max-width:560px">Fill out the form below and I will be in touch within 24 hours. Tell me about your goals, where you are now, and what you are hoping to achieve.</p>
+    <div class="wwm-grid">
+      <div>
+        <div class="ib"><div class="ilbl">Email</div><div class="ival">mrlyrichermanson@gmail.com</div></div>
+        <div class="ib"><div class="ilbl">Socials</div><div class="ival">lyric_hermanson</div></div>
+        <div class="ib"><div class="ilbl">Format</div><div class="ival">Primarily Online / 1-on-1</div></div>
+        <div class="ib"><div class="ilbl">Rate</div><div class="ival">$300 USD / month</div><div class="isub">Flexible pricing available</div></div>
+        <hr style="border:none;border-top:1px solid var(--lgray);margin:36px 0">
+        <p class="fp">I take on a limited number of clients at a time to ensure every person gets the attention they deserve. If you are serious about making real progress, I would love to hear from you.</p>
+      </div>
+      <div>
+        <form id="applyForm" action="https://formspree.io/f/mdapqnan" method="POST">
+          <div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
+          <div class="field"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
+          <div class="field"><label>Your Goal</label><input type="text" name="goal" placeholder="e.g. Build muscle, lose fat, improve performance..."></div>
+          <div class="field"><label>Tell Me About Yourself</label><textarea name="message" placeholder="Training background, schedule, anything relevant..."></textarea></div>
+          <button type="submit" class="sub-btn">Submit Application</button>
+          <p class="sub-note">You will receive a response within 24 hours.</p>
+        </form>
+        <div class="success" id="successMsg">✓ &nbsp;Application received. I'll be in touch within 24 hours — talk soon.</div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="fsm">Lyric Hermanson</div><div class="fm">Primarily Online <span>|</span> 1-on-1 Only <span>|</span> mrlyrichermanson@gmail.com</div><div class="fs">Socials: <a href="https://instagram.com/lyric_hermanson" target="_blank">lyric_hermanson</a></div></footer>
+</div>
+
+<script>
+function show(p){
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.nav-links button').forEach(x=>x.classList.remove('active'));
+  document.getElementById(p).classList.add('active');
+  const n=document.getElementById('nav-'+p);
+  if(n)n.classList.add('active');
+  window.scrollTo(0,0);
+}
+document.getElementById('applyForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=this.querySelector('.sub-btn');
+  btn.textContent='Sending...';btn.disabled=true;
+  try{
+    const r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
+    if(r.ok){this.style.display='none';document.getElementById('successMsg').style.display='block';}
+    else{btn.textContent='Submit Application';btn.disabled=false;alert('Something went wrong. Please email mrlyrichermanson@gmail.com directly.');}
+  }catch(err){btn.textContent='Submit Application';btn.disabled=false;alert('Something went wrong. Please email mrlyrichermanson@gmail.com directly.');}
+});
+show('home');
+</script>
+</body>
+</html>
